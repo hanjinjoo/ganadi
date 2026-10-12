@@ -1,0 +1,13 @@
+{
+  "id": "./",
+  "name": "가나디: 잿빛 지구",
+  "short_name": "가나디",
+  "lang": "ko",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "landscape",
+  "background_color": "#151c21",
+  "theme_color": "#151c21",
+  "icons": [{ "src": "./icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }]
+}

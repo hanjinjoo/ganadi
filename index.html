@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#151c21" />
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="icon" href="./icon.svg" type="image/svg+xml" />
+    <title>가나디: 잿빛 지구 · PHASE 12</title>
+    <script type="module" crossorigin src="./assets/index-Cnk5af4a.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-CKOjF6Dy.css">
+  </head>
+  <body>
+    <main id="game" tabindex="-1" aria-label="가나디 게임 화면"></main>
+    <section id="hud" aria-label="게임 조작">
+      <div class="heading"><b>가나디 <span>잿빛 지구</span></b><small>PHASE 12 / SAVE</small><small id="current-seed"></small></div>
+      <nav><button id="chest-open" type="button">상자 · G</button><button id="inventory-toggle" type="button" aria-expanded="false">가방 · E</button><button id="new-game" type="button">타이틀</button><button id="pause-button" type="button">일시정지 · Esc</button><button id="reset" type="button">처음으로 · R</button><button id="fps-toggle" type="button" aria-pressed="false">FPS · F3</button></nav>
+      <div id="joystick" role="group" aria-label="좌우 이동 스틱"><span class="arrows"><span>◀</span><span>▶</span></span><span id="stick"></span></div>
+      <button id="jump" type="button" aria-label="점프, 길게 누르면 높이 점프">↑<small>점프</small></button>
+      <button id="build-toggle" type="button" aria-pressed="false">채굴 모드</button>
+      <div id="survival-hud" aria-live="off"><span id="form-face">🐶</span><label>체력 <progress id="health-bar" max="100" value="100"></progress><output id="health-value">100</output></label><label>배고픔 <progress id="hunger-bar" max="100" value="100"></progress><output id="hunger-value">100</output></label><span id="poison-indicator" hidden>☠ 독</span></div><button id="eat-action" type="button" hidden>먹기 · F</button><div id="hotbar" role="group" aria-label="핫바 6칸"></div><div id="food-arrow" aria-hidden="true" hidden>➤</div><div id="form-overlay" aria-hidden="true"></div><div id="form-flash" aria-hidden="true"></div><div id="speech-bubble" aria-live="polite"></div><div id="death-screen" hidden>가나디가 쓰러졌습니다…</div>
+      <div id="interaction-message" role="status"></div>
+      <div class="help">좌클릭 홀드 채굴 · 우클릭 설치 · 1–6 선택</div>
+    </section>
+    <section id="inventory" role="dialog" aria-modal="true" aria-label="인벤토리" hidden>
+      <header><b>가방</b><span>첫 줄은 핫바 · 30칸</span><button id="inventory-sort" type="button">정렬</button><button id="inventory-close" type="button">닫기 · E</button></header>
+      <div class="inventory-body"><div id="inventory-grid" role="group" aria-label="6열 5행 인벤토리"></div><aside id="crafting-panel" aria-label="제작 영역"></aside><aside id="chest-panel" hidden><button id="chest-back" type="button">제작으로</button><p>20칸 보관함 · 클릭/탭 입출고 · 우클릭 분할 · Shift+클릭 꺼내기</p><div id="chest-grid"></div></aside></div>
+      <footer><div id="item-tooltip" role="status"></div><button id="inventory-trash" type="button">휴지통 · 버리기</button><small>클릭/탭 집기·놓기 · Shift+클릭 빠른 이동 · 우클릭 절반/1개 · Q 1개, Shift+Q 전체 · 길게 눌러 분할</small></footer>
+      <div id="split-panel" hidden><label for="split-range">나눌 수량 <output id="split-value"></output></label><input id="split-range" type="range" min="1" max="99" value="1" /><button id="split-confirm" type="button">분할</button><button id="split-cancel" type="button">취소</button></div>
+    </section><div id="held-item" hidden></div>
+    <div id="unlock-toast" role="status" hidden></div>
+    <div id="status" role="status">월드 준비 중…</div>
+    <form id="seed-menu" hidden>
+      <small>가나디 · 잿빛 지구</small><h1>잿빛 세계를 깨우세요</h1>
+      <label for="seed-input">월드 시드</label>
+      <input id="seed-input" name="seed" maxlength="128" autocomplete="off" placeholder="비우면 무작위 시드" />
+      <p>같은 시드는 같은 지형과 폐허를 만듭니다.<br />새 게임은 현재 진행을 초기화합니다.</p>
+      <button id="start-game" type="submit">새 세계 시작</button><button id="continue-game" type="button" hidden>이어하기</button><button type="button" data-open-settings>설정</button>
+    </form>
+    <section id="pause-menu" hidden><h2>일시정지</h2><button id="pause-resume">계속하기</button><button id="pause-save">저장하기</button><button id="pause-title">타이틀로</button><button type="button" data-open-settings>설정</button></section>
+    <section id="settings-screen" role="dialog" aria-label="게임 설정" hidden><h2>설정</h2><label>마스터 볼륨 <input id="setting-master" type="range" min="0" max="100"></label><label>효과음 <input id="setting-effects" type="range" min="0" max="100"></label><label>배경음 <input id="setting-music" type="range" min="0" max="100"></label><label>조작 UI 크기 <select id="setting-ui"><option value="small">소</option><option value="medium">중</option><option value="large">대</option></select></label><label>그래픽 품질 <select id="setting-quality"><option value="low">낮음</option><option value="normal">보통</option></select></label><label>진동 <input id="setting-vibration" type="checkbox"></label><button type="button" id="settings-close">돌아가기</button></section><div id="tutorial-toast" role="status" hidden></div><div id="save-toast" role="status" hidden></div>
+    <section id="rotate" role="status"><div>↻</div><h1>가로로 돌려 주세요</h1><p>잿빛 지구는 가로 화면에서 탐험할 수 있어요.</p></section>
+  <button id="attack-button" type="button" aria-label="공격">⚔ 공격 (J)</button>
+</body>
+</html>

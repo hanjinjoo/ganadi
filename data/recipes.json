@@ -1,0 +1,216 @@
+[
+  {
+    "id": "plank",
+    "result": {
+      "item": "plank",
+      "count": 2
+    },
+    "ingredients": [
+      {
+        "item": "wood_scrap",
+        "count": 2
+      }
+    ],
+    "station": "none",
+    "craftTime": 0,
+    "unlock": {
+      "type": "start",
+      "item": "plank"
+    }
+  },
+  {
+    "id": "torch",
+    "result": {
+      "item": "torch",
+      "count": 2
+    },
+    "ingredients": [
+      {
+        "item": "wood_scrap",
+        "count": 1
+      },
+      {
+        "item": "moss",
+        "count": 1
+      }
+    ],
+    "station": "none",
+    "craftTime": 0,
+    "unlock": {
+      "type": "acquire",
+      "item": "moss"
+    }
+  },
+  {
+    "id": "workbench",
+    "result": {
+      "item": "workbench",
+      "count": 1
+    },
+    "ingredients": [
+      {
+        "item": "wood_scrap",
+        "count": 4
+      }
+    ],
+    "station": "none",
+    "craftTime": 0,
+    "unlock": {
+      "type": "acquire",
+      "item": "wood_scrap"
+    }
+  },
+  {
+    "id": "campfire",
+    "result": {
+      "item": "campfire",
+      "count": 1
+    },
+    "ingredients": [
+      {
+        "item": "wood_scrap",
+        "count": 3
+      },
+      {
+        "item": "stone",
+        "count": 2
+      }
+    ],
+    "station": "none",
+    "craftTime": 0,
+    "unlock": {
+      "type": "acquire",
+      "item": "stone"
+    }
+  },
+  {
+    "id": "chest",
+    "result": {
+      "item": "chest",
+      "count": 1
+    },
+    "ingredients": [
+      {
+        "item": "plank",
+        "count": 6
+      }
+    ],
+    "station": "workbench",
+    "craftTime": 0,
+    "unlock": {
+      "type": "acquire",
+      "item": "workbench"
+    }
+  },
+  {
+    "id": "pickaxe_scrap",
+    "result": {
+      "item": "pickaxe_scrap",
+      "count": 1
+    },
+    "ingredients": [
+      {
+        "item": "wood_scrap",
+        "count": 2
+      },
+      {
+        "item": "rubble",
+        "count": 3
+      }
+    ],
+    "station": "workbench",
+    "craftTime": 0,
+    "unlock": {
+      "type": "acquire",
+      "item": "workbench"
+    }
+  },
+  {
+    "id": "axe_scrap",
+    "result": {
+      "item": "axe_scrap",
+      "count": 1
+    },
+    "ingredients": [
+      {
+        "item": "wood_scrap",
+        "count": 2
+      },
+      {
+        "item": "rubble",
+        "count": 2
+      }
+    ],
+    "station": "workbench",
+    "craftTime": 0,
+    "unlock": {
+      "type": "acquire",
+      "item": "workbench"
+    }
+  },
+  {
+    "id": "pickaxe_metal",
+    "result": {
+      "item": "pickaxe_metal",
+      "count": 1
+    },
+    "ingredients": [
+      {
+        "item": "wood_scrap",
+        "count": 2
+      },
+      {
+        "item": "scrap_metal",
+        "count": 4
+      }
+    ],
+    "station": "workbench",
+    "craftTime": 0,
+    "unlock": {
+      "type": "acquire",
+      "item": "scrap_metal"
+    }
+  },
+  {
+    "id": "spear_rebar",
+    "result": {
+      "item": "spear_rebar",
+      "count": 1
+    },
+    "ingredients": [
+      {
+        "item": "wood_scrap",
+        "count": 1
+      },
+      {
+        "item": "scrap_metal",
+        "count": 3
+      }
+    ],
+    "station": "workbench",
+    "craftTime": 0,
+    "unlock": {
+      "type": "acquire",
+      "item": "scrap_metal"
+    }
+  },
+  {
+    "id": "cooked_meat",
+    "result": {
+      "item": "cooked_meat",
+      "count": 1
+    },
+    "ingredients": [
+      {
+        "item": "mutant_meat_raw",
+        "count": 1
+      }
+    ],
+    "station": "campfire",
+    "craftTime": 3,
+    "unlock": {
+      "type": "acquire",
+      "item": "mutant_meat_raw"
+    }
+  }
+]

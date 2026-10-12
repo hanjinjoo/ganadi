@@ -1,0 +1,29 @@
+[
+  {
+    "id": "ash_ruins",
+    "layer": "surface",
+    "minWidth": 96,
+    "minY": 0,
+    "amplitude": 1,
+    "treeDensity": 0.025,
+    "oreWeight": 1
+  },
+  {
+    "id": "spore_wood",
+    "layer": "surface",
+    "minWidth": 96,
+    "minY": 0,
+    "amplitude": 0.7,
+    "treeDensity": 0.12,
+    "oreWeight": 0.8
+  },
+  {
+    "id": "deep_crack",
+    "layer": "underground",
+    "minWidth": 96,
+    "minY": 100,
+    "amplitude": 1,
+    "treeDensity": 0,
+    "oreWeight": 1.5
+  }
+]

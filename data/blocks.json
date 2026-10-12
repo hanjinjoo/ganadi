@@ -1,0 +1,291 @@
+[
+  {
+    "id": "bedrock",
+    "numericId": 1,
+    "name": "기반암",
+    "texture": "blocks/bedrock",
+    "hardness": 100000,
+    "toolType": "none",
+    "requiredTier": 99,
+    "miningTime": 60000,
+    "dropItem": [],
+    "stackSize": 99,
+    "transparent": false,
+    "collision": true,
+    "gravity": false,
+    "lightEmission": 0,
+    "flammability": 0,
+    "special": "unbreakable"
+  },
+  {
+    "id": "ash_soil",
+    "numericId": 2,
+    "name": "잿빛 흙",
+    "texture": "blocks/ash_soil",
+    "hardness": 1,
+    "toolType": "none",
+    "requiredTier": 0,
+    "miningTime": 0.6,
+    "dropItem": [
+      {
+        "id": "ash_soil",
+        "count": 1
+      }
+    ],
+    "stackSize": 99,
+    "transparent": false,
+    "collision": true,
+    "gravity": false,
+    "lightEmission": 0,
+    "flammability": 0,
+    "special": "none"
+  },
+  {
+    "id": "rubble",
+    "numericId": 3,
+    "name": "잔해",
+    "texture": "blocks/rubble",
+    "hardness": 2,
+    "toolType": "pickaxe",
+    "requiredTier": 0,
+    "miningTime": 1.2,
+    "dropItem": [
+      {
+        "id": "rubble",
+        "count": 1
+      }
+    ],
+    "stackSize": 99,
+    "transparent": false,
+    "collision": true,
+    "gravity": false,
+    "lightEmission": 0,
+    "flammability": 0,
+    "special": "none"
+  },
+  {
+    "id": "stone",
+    "numericId": 4,
+    "name": "돌",
+    "texture": "blocks/stone",
+    "hardness": 3,
+    "toolType": "pickaxe",
+    "requiredTier": 1,
+    "miningTime": 1.7999999999999998,
+    "dropItem": [
+      {
+        "id": "stone",
+        "count": 1
+      }
+    ],
+    "stackSize": 99,
+    "transparent": false,
+    "collision": true,
+    "gravity": false,
+    "lightEmission": 0,
+    "flammability": 0,
+    "special": "none"
+  },
+  {
+    "id": "scrap_ore",
+    "numericId": 5,
+    "name": "고철 광석",
+    "texture": "blocks/scrap_ore",
+    "hardness": 4,
+    "toolType": "pickaxe",
+    "requiredTier": 1,
+    "miningTime": 2.4,
+    "dropItem": [
+      {
+        "id": "scrap_metal",
+        "count": 1
+      }
+    ],
+    "stackSize": 99,
+    "transparent": false,
+    "collision": true,
+    "gravity": false,
+    "lightEmission": 0,
+    "flammability": 0,
+    "special": "none"
+  },
+  {
+    "id": "withered_wood",
+    "numericId": 6,
+    "name": "고사목",
+    "texture": "blocks/withered_wood",
+    "hardness": 2,
+    "toolType": "axe",
+    "requiredTier": 0,
+    "miningTime": 1.2,
+    "dropItem": [
+      {
+        "id": "wood_scrap",
+        "count": 2
+      }
+    ],
+    "stackSize": 99,
+    "transparent": false,
+    "collision": true,
+    "gravity": false,
+    "lightEmission": 0,
+    "flammability": 0.7,
+    "special": "none"
+  },
+  {
+    "id": "plank",
+    "numericId": 7,
+    "name": "판자",
+    "texture": "blocks/plank",
+    "hardness": 1.5,
+    "toolType": "axe",
+    "requiredTier": 0,
+    "miningTime": 0.8999999999999999,
+    "dropItem": [
+      {
+        "id": "plank",
+        "count": 1
+      }
+    ],
+    "stackSize": 99,
+    "transparent": false,
+    "collision": true,
+    "gravity": false,
+    "lightEmission": 0,
+    "flammability": 0.8,
+    "special": "none"
+  },
+  {
+    "id": "glow_moss",
+    "numericId": 8,
+    "name": "발광 이끼",
+    "texture": "blocks/glow_moss",
+    "hardness": 0.3,
+    "toolType": "none",
+    "requiredTier": 0,
+    "miningTime": 0.18,
+    "dropItem": [
+      {
+        "id": "moss",
+        "count": 1
+      }
+    ],
+    "stackSize": 99,
+    "transparent": true,
+    "collision": false,
+    "gravity": false,
+    "lightEmission": 40,
+    "flammability": 0.1,
+    "special": "light"
+  },
+  {
+    "id": "campfire",
+    "numericId": 9,
+    "name": "모닥불",
+    "texture": "blocks/campfire",
+    "hardness": 1,
+    "toolType": "none",
+    "requiredTier": 0,
+    "miningTime": 0.6,
+    "dropItem": [
+      {
+        "id": "campfire",
+        "count": 1
+      }
+    ],
+    "stackSize": 99,
+    "transparent": true,
+    "collision": false,
+    "gravity": false,
+    "lightEmission": 120,
+    "flammability": 0,
+    "special": "cooking"
+  },
+  {
+    "id": "torch",
+    "numericId": 10,
+    "name": "횃불",
+    "texture": "blocks/torch",
+    "hardness": 0.2,
+    "toolType": "none",
+    "requiredTier": 0,
+    "miningTime": 0.12,
+    "dropItem": [
+      {
+        "id": "torch",
+        "count": 1
+      }
+    ],
+    "stackSize": 99,
+    "transparent": true,
+    "collision": false,
+    "gravity": false,
+    "lightEmission": 80,
+    "flammability": 0,
+    "special": "light"
+  },
+  {
+    "id": "chest",
+    "numericId": 11,
+    "name": "상자",
+    "texture": "blocks/chest",
+    "hardness": 2,
+    "toolType": "axe",
+    "requiredTier": 0,
+    "miningTime": 1.2,
+    "dropItem": [
+      {
+        "id": "chest",
+        "count": 1
+      }
+    ],
+    "stackSize": 99,
+    "transparent": false,
+    "collision": true,
+    "gravity": false,
+    "lightEmission": 0,
+    "flammability": 0.7,
+    "special": "container"
+  },
+  {
+    "id": "workbench",
+    "numericId": 12,
+    "name": "작업대",
+    "texture": "blocks/workbench",
+    "hardness": 2,
+    "toolType": "axe",
+    "requiredTier": 0,
+    "miningTime": 1.2,
+    "dropItem": [
+      {
+        "id": "workbench",
+        "count": 1
+      }
+    ],
+    "stackSize": 99,
+    "transparent": false,
+    "collision": true,
+    "gravity": false,
+    "lightEmission": 0,
+    "flammability": 0.7,
+    "special": "crafting"
+  },
+  {
+    "id": "supply_crate",
+    "numericId": 13,
+    "name": "보급 상자",
+    "texture": "blocks/supply_crate",
+    "hardness": 2,
+    "toolType": "axe",
+    "requiredTier": 0,
+    "miningTime": 1.2,
+    "dropItem": [],
+    "stackSize": 99,
+    "transparent": false,
+    "collision": true,
+    "gravity": false,
+    "lightEmission": 0,
+    "flammability": 0.5,
+    "special": "supply"
+  }
+]

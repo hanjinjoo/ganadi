@@ -1,0 +1,63 @@
+{
+  "key": "ganadi-atlas",
+  "image": "assets/textures/characters.svg",
+  "frameWidth": 32,
+  "frameHeight": 32,
+  "forms": [
+    "normal",
+    "sensitive",
+    "rampage"
+  ],
+  "animations": {
+    "idle": {
+      "frames": 4,
+      "fps": 5,
+      "repeat": -1
+    },
+    "walk": {
+      "frames": 6,
+      "fps": 10,
+      "repeat": -1
+    },
+    "jump": {
+      "frames": 1,
+      "fps": 1,
+      "repeat": 0
+    },
+    "fall": {
+      "frames": 1,
+      "fps": 1,
+      "repeat": 0
+    },
+    "mine": {
+      "frames": 4,
+      "fps": 10,
+      "repeat": -1
+    },
+    "attack": {
+      "frames": 4,
+      "fps": 12,
+      "repeat": 0
+    },
+    "hurt": {
+      "frames": 2,
+      "fps": 8,
+      "repeat": 0
+    },
+    "eat": {
+      "frames": 4,
+      "fps": 8,
+      "repeat": 0
+    },
+    "transform": {
+      "frames": 6,
+      "fps": 7.5,
+      "repeat": 0
+    },
+    "die": {
+      "frames": 1,
+      "fps": 1,
+      "repeat": 0
+    }
+  }
+}
