@@ -9,5 +9,16 @@
   "orientation": "landscape",
   "background_color": "#151c21",
   "theme_color": "#151c21",
-  "icons": [{ "src": "./icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }]
+  "icons": [
+    {
+      "src": "./icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ],
+  "display_override": [
+    "fullscreen",
+    "standalone"
+  ]
 }
