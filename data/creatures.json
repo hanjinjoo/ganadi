@@ -1,7 +1,7 @@
 [
   {
     "id": "green_fur_rat",
-    "name": "녹털쥐",
+    "name": "들돼지",
     "behavior": "passive",
     "health": 12,
     "speed": 45,
@@ -38,7 +38,7 @@
   },
   {
     "id": "gray_howler",
-    "name": "회색 하울러",
+    "name": "잿빛 멧돼지",
     "behavior": "hostile",
     "health": 35,
     "speed": 60,
