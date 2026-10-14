@@ -32,7 +32,7 @@
         "chance": 0.4
       },
       {
-        "id": "scrap_metal",
+        "id": "copper",
         "weight": 1,
         "min": 1,
         "max": 1,
@@ -45,7 +45,7 @@
     "mode": "independent",
     "entries": [
       {
-        "id": "scrap_metal",
+        "id": "copper",
         "weight": 1,
         "min": 1,
         "max": 2,

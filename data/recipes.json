@@ -183,7 +183,7 @@
         "count": 1
       },
       {
-        "item": "scrap_metal",
+        "item": "copper",
         "count": 3
       }
     ],
@@ -191,7 +191,7 @@
     "craftTime": 0,
     "unlock": {
       "type": "acquire",
-      "item": "scrap_metal"
+      "item": "copper"
     }
   },
   {
@@ -211,6 +211,152 @@
     "unlock": {
       "type": "acquire",
       "item": "mutant_meat_raw"
+    }
+  },
+  {
+    "id": "pickaxe_copper",
+    "result": {
+      "item": "pickaxe_copper",
+      "count": 1
+    },
+    "ingredients": [
+      {
+        "item": "wood_scrap",
+        "count": 2
+      },
+      {
+        "item": "copper",
+        "count": 3
+      }
+    ],
+    "station": "workbench",
+    "craftTime": 0,
+    "unlock": {
+      "type": "acquire",
+      "item": "copper"
+    }
+  },
+  {
+    "id": "beef_cooked",
+    "result": {
+      "item": "beef_cooked",
+      "count": 1
+    },
+    "ingredients": [
+      {
+        "item": "beef_raw",
+        "count": 1
+      }
+    ],
+    "station": "campfire",
+    "craftTime": 3,
+    "unlock": {
+      "type": "acquire",
+      "item": "beef_raw"
+    }
+  },
+  {
+    "id": "pistol",
+    "result": {
+      "item": "pistol",
+      "count": 1
+    },
+    "ingredients": [
+      {
+        "item": "scrap_metal",
+        "count": 6
+      },
+      {
+        "item": "copper",
+        "count": 2
+      },
+      {
+        "item": "plank",
+        "count": 2
+      }
+    ],
+    "station": "workbench",
+    "craftTime": 2,
+    "unlock": {
+      "type": "acquire",
+      "item": "scrap_metal"
+    }
+  },
+  {
+    "id": "pistol_ammo",
+    "result": {
+      "item": "pistol_ammo",
+      "count": 8
+    },
+    "ingredients": [
+      {
+        "item": "copper",
+        "count": 1
+      },
+      {
+        "item": "scrap_metal",
+        "count": 1
+      },
+      {
+        "item": "coal",
+        "count": 1
+      }
+    ],
+    "station": "workbench",
+    "craftTime": 0.5,
+    "unlock": {
+      "type": "acquire",
+      "item": "coal"
+    }
+  },
+  {
+    "id": "torch_coal",
+    "result": {
+      "item": "torch",
+      "count": 4
+    },
+    "ingredients": [
+      {
+        "item": "wood_scrap",
+        "count": 1
+      },
+      {
+        "item": "coal",
+        "count": 1
+      }
+    ],
+    "station": "none",
+    "craftTime": 0,
+    "unlock": {
+      "type": "acquire",
+      "item": "coal"
+    }
+  },
+  {
+    "id": "campfire_coal",
+    "result": {
+      "item": "campfire",
+      "count": 2
+    },
+    "ingredients": [
+      {
+        "item": "wood_scrap",
+        "count": 3
+      },
+      {
+        "item": "stone",
+        "count": 2
+      },
+      {
+        "item": "coal",
+        "count": 1
+      }
+    ],
+    "station": "none",
+    "craftTime": 0,
+    "unlock": {
+      "type": "acquire",
+      "item": "coal"
     }
   }
 ]

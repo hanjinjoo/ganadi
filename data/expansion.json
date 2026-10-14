@@ -1,0 +1,38 @@
+{
+  "generationVersion": 2,
+  "ores": [
+    {
+      "id": "coal_ore",
+      "minY": 58,
+      "maxY": 130,
+      "attempts": 9,
+      "minSize": 4,
+      "maxSize": 8
+    },
+    {
+      "id": "copper_ore",
+      "minY": 60,
+      "maxY": 120,
+      "attempts": 7,
+      "minSize": 3,
+      "maxSize": 6
+    },
+    {
+      "id": "scrap_ore",
+      "minY": 95,
+      "maxY": 150,
+      "attempts": 3,
+      "minSize": 2,
+      "maxSize": 4
+    }
+  ],
+  "pistol": {
+    "item": "pistol",
+    "ammo": "pistol_ammo",
+    "interval": 0.45,
+    "range": 192,
+    "effectLife": 0.09,
+    "maxEffects": 8
+  },
+  "sunInterval": 0.25
+}

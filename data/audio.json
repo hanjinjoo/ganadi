@@ -139,6 +139,13 @@
       "duration": 0.12,
       "category": "music",
       "loop": true
+    },
+    "pistol_shot": {
+      "src": "assets/audio/pistol-shot.wav",
+      "frequency": 100,
+      "duration": 0.12,
+      "category": "sfx",
+      "loop": false
     }
   }
 }
