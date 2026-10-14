@@ -30,7 +30,7 @@ export class WorldInput {
   get worldY(){return this.sy+this.camera.scrollY;}
   get screenX(){return this.sx;}
   get screenY(){return this.sy;}
-  get building(){return this.touchMode?(!!this.selectedBuild&&!this.occupiedTarget?.()):(this.active&&this.right);}
+  get building(){return this.touchMode?false:(this.active&&this.right);}
   updateTarget(playerX,playerY){
     if(this.touchMode&&!this.aimInitialized&&playerX!==undefined&&playerY!==undefined){
       this.sx=Math.max(8,Math.min(this.canvas.width-8,playerX-this.camera.scrollX+32));
@@ -47,14 +47,14 @@ export class WorldInput {
     if(this.cancelled.has(`${this.targetX},${this.targetY}`))return false;
     this.autoTarget??={x:this.targetX,y:this.targetY};return true;
   }
-  miningCompleted(x,y){if(this.touchMode&&this.selectedBuild)this.clear();
+  miningCompleted(x,y){
     // Completion is not cancellation: the next aimed tile can be mined immediately.
     if(this.autoTarget?.x===x&&this.autoTarget?.y===y)this.autoTarget=null;
   }
   enableTouch(){this.touchMode=true;document.body.classList.add('touch-aim');this.aiming=true;}
   position(e){const r=this.canvas.getBoundingClientRect();this.sx=(e.clientX-r.left)*this.canvas.width/r.width;this.sy=(e.clientY-r.top)*this.canvas.height/r.height;this.aiming=this.sx>=0&&this.sx<this.canvas.width&&this.sy>=0&&this.sy<this.canvas.height;this.updateTarget();}
   down=e=>{
-    if(e.pointerType!=='mouse'){if(this.disabled)return;e.preventDefault();this.enableTouch();this.position(e);if(this.onInteract(this.targetX,this.targetY,e))this.clear();return;}
+    if(e.pointerType!=='mouse'){e.preventDefault();return;}
     if(this.disabled||this.pointer!==-1||![0,2].includes(e.button))return;
     this.clear();this.touchMode=false;document.body.classList.remove('touch-aim');e.preventDefault();this.pointer=e.pointerId;this.active=true;this.right=e.button===2;this.canvas.setPointerCapture(e.pointerId);this.position(e);if(e.button===0&&this.onInteract(this.targetX,this.targetY,e))this.clear();
   };

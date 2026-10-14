@@ -14,17 +14,18 @@
     <link rel="stylesheet" crossorigin href="./assets/index-C5jlvgUO.css">
   <link rel="stylesheet" href="./assets/display-stable.css">
     <script type="module" src="./assets/display-stable.js"></script>
-  <link rel="stylesheet" href="./assets/context-use.css"></head>
+  <link rel="stylesheet" href="./assets/context-use.css"><link rel="stylesheet" href="./assets/homestead.css">
+</head>
   <body>
     <main id="game" tabindex="-1" aria-label="가나디 게임 화면"></main>
     <section id="hud" aria-label="게임 조작">
-      <div class="heading"><b>가나디 <span>잿빛 지구</span></b><small>PHASE 12 / SAVE</small><small id="current-seed"></small></div>
+      <div class="heading"><b>가나디 <span>잿빛 지구</span></b><small id="current-seed"></small></div>
       <nav><button id="chest-open" type="button">상자 · G</button><button id="inventory-toggle" type="button" aria-expanded="false">가방 · E</button><button id="pause-button" type="button">일시정지 · Esc</button><button type="button" data-fullscreen aria-pressed="false">전체화면</button><details id="game-more"><summary>메뉴 ▾</summary><div><button id="new-game" type="button">타이틀</button><button id="reset" type="button">처음으로 · R</button><button id="fps-toggle" type="button" aria-pressed="false">FPS · F3</button></div></details></nav>
       <div id="joystick" role="group" aria-label="이동 스틱: 좌우 이동, 위로 밀면 점프"><span class="arrows"><span>◀</span><span>▶</span></span><small class="stick-jump-hint">↑ 점프</small><span id="stick"></span></div>
       <button id="jump" type="button" aria-label="점프, 길게 누르면 높이 점프">↑<small>점프</small></button>
       <button id="build-toggle" type="button" aria-pressed="false">채굴 모드</button>
       <div id="survival-hud" aria-live="off"><span id="form-face">🐶</span><label>체력 <progress id="health-bar" max="100" value="100"></progress><output id="health-value">100</output></label><label>배고픔 <progress id="hunger-bar" max="100" value="100"></progress><output id="hunger-value">100</output></label><span id="poison-indicator" hidden>☠ 독</span></div><button id="eat-action" type="button" hidden>먹기 · F</button><div id="hotbar" role="group" aria-label="핫바 6칸"></div><div id="food-arrow" aria-hidden="true" hidden>➤</div><div id="form-overlay" aria-hidden="true"></div><div id="form-flash" aria-hidden="true"></div><div id="speech-bubble" aria-live="polite"></div><div id="death-screen" hidden>가나디가 쓰러졌습니다…</div>
-      <div id="aim-pad" role="group" aria-label="조준과 행동 패드: 드래그로 겨누고 길게 눌러 채굴·공격·설치"><span>✛</span><small>조준</small></div>
+      <div id="aim-pad" role="group" aria-label="조준과 행동 패드: 드래그로 겨누고 길게 눌러 채굴·공격. 설치는 별도 설치 버튼"><span>✛</span><small>조준</small></div>
       <div id="interaction-message" role="status"></div>
       <div class="help">좌클릭 홀드 채굴 · 우클릭 설치 · 1–6 선택</div>
     </section>

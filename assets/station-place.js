@@ -6,6 +6,7 @@ export function attachStations(scene){
  const title=panel.querySelector('h3');
  const back=document.createElement('button');back.type='button';back.id='station-back';back.textContent='손 제작으로';back.hidden=true;title.after(back);
  const mode=document.createElement('button');mode.type='button';mode.id='station-demolish';mode.textContent='시설 철거: 꺼짐';mode.setAttribute('aria-pressed','false');document.querySelector('#game-more>div').append(mode);
+ scene.stationTarget=()=>current;
  const visible=r=>current?r.station===current.id:r.station==='none';craft.visibleRecipe=visible;
  function reachable(s){
   if(!s||scene.world.getBlock(s.x,s.y)?.id!==s.id)return false;
@@ -47,11 +48,11 @@ export function attachStations(scene){
  function target(){
   if(!input.touchMode||input.disabled||scene.inventoryUI.opened||scene.pausedByMenu||scene.dying>0||!scene.inventoryUI.canOpen())return null;
   const x=Math.floor(input.worldX/16),y=Math.floor(input.worldY/16),id=scene.world.getBlock(x,y)?.id;
-  return ['workbench','campfire','chest'].includes(id)&&reachable({id,x,y})?{id,x,y}:null;
+  return scene.homestead?.target(x,y)??(['workbench','campfire','chest'].includes(id)&&reachable({id,x,y})?{id,x,y}:null);
  }
  function refreshUse(){
   const t=target(),canPlace=allowed()&&scene.build.check(scene.player.body,Math.floor(input.worldX/16),Math.floor(input.worldY/16))==='';use.hidden=!t&&!canPlace&&hold===null;
-  if(t||canPlace||hold!==null){use.textContent=hold!==null||!t?'설치':t.id==='workbench'?'작업대 사용':t.id==='campfire'?'요리하기':'상자 열기';const r=input.pad.getBoundingClientRect();use.style.left=Math.max(4,r.left-88)+'px';use.style.top=(r.top+(r.height-48)/2)+'px';}
+  if(t||canPlace||hold!==null){use.textContent=hold!==null||!t?'설치':t.label??(t.id==='workbench'?'작업대 사용':t.id==='campfire'?'요리하기':'상자 열기');const r=input.pad.getBoundingClientRect();use.style.left=Math.max(4,r.left-88)+'px';use.style.top=(r.top+(r.height-48)/2)+'px';}
   const slot=scene.inventory.slot(scene.inventory.selected),place=!!(slot.id&&scene.inventory.registry.get(slot.id).blockId);
   input.selectedBuild=place;
   // Using a facility is explicit; holding aim still mines it with any valid item.
@@ -60,7 +61,8 @@ export function attachStations(scene){
  use.addEventListener('click',()=>{if(suppressClick){suppressClick=false;return;}
   const t=target();if(!t)return;
   input.clear();scene.controls.clear();scene.mining.reset();
-  if(t.id==='chest'){scene.inventoryUI.setOpen(true);if(scene.inventoryUI.opened)scene.chestUI.open(scene.chests.get(t.x,t.y));}
+  if(t.custom){scene.homestead.use(t.x,t.y);}
+  else if(t.id==='chest'){scene.inventoryUI.setOpen(true);if(scene.inventoryUI.opened)scene.chestUI.open(scene.chests.get(t.x,t.y));}
   else open(t.x,t.y,true);
   use.hidden=true;use.blur();
  },{signal:abort.signal});

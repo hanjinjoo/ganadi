@@ -358,5 +358,47 @@
       "type": "acquire",
       "item": "coal"
     }
+  },
+  {
+    "id": "door",
+    "result": {
+      "item": "door",
+      "count": 1
+    },
+    "ingredients": [
+      {
+        "item": "plank",
+        "count": 4
+      }
+    ],
+    "station": "workbench",
+    "craftTime": 0,
+    "unlock": {
+      "type": "acquire",
+      "item": "plank"
+    }
+  },
+  {
+    "id": "bed",
+    "result": {
+      "item": "bed",
+      "count": 1
+    },
+    "ingredients": [
+      {
+        "item": "plank",
+        "count": 6
+      },
+      {
+        "item": "leaf",
+        "count": 4
+      }
+    ],
+    "station": "workbench",
+    "craftTime": 0,
+    "unlock": {
+      "type": "acquire",
+      "item": "leaf"
+    }
   }
 ]
