@@ -60,9 +60,9 @@ export function attachStations(scene){
  }
  use.addEventListener('click',()=>{if(suppressClick){suppressClick=false;return;}
   const t=target();if(!t)return;
+  if(t.custom){scene.homestead.use(t.x,t.y);use.hidden=true;use.blur();return;}
   input.clear();scene.controls.clear();scene.mining.reset();
-  if(t.custom){scene.homestead.use(t.x,t.y);}
-  else if(t.id==='chest'){scene.inventoryUI.setOpen(true);if(scene.inventoryUI.opened)scene.chestUI.open(scene.chests.get(t.x,t.y));}
+  if(t.id==='chest'){scene.inventoryUI.setOpen(true);if(scene.inventoryUI.opened)scene.chestUI.open(scene.chests.get(t.x,t.y));}
   else open(t.x,t.y,true);
   use.hidden=true;use.blur();
  },{signal:abort.signal});

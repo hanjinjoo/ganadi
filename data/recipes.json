@@ -400,5 +400,24 @@
       "type": "acquire",
       "item": "leaf"
     }
+  },
+  {
+    "id": "chicken_cooked",
+    "result": {
+      "item": "chicken_cooked",
+      "count": 1
+    },
+    "ingredients": [
+      {
+        "item": "chicken_raw",
+        "count": 1
+      }
+    ],
+    "station": "campfire",
+    "craftTime": 3,
+    "unlock": {
+      "type": "acquire",
+      "item": "chicken_raw"
+    }
   }
 ]

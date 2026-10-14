@@ -685,5 +685,47 @@
     "description": "나뭇잎에서 얻습니다. 모닥불에서 10초 동안 약하게 탑니다.",
     "rarity": "common",
     "useEffect": null
+  },
+  {
+    "id": "chicken_raw",
+    "name": "생닭고기",
+    "kind": "food",
+    "blockId": null,
+    "stackSize": 20,
+    "hunger": 6,
+    "poisonChance": 0,
+    "toolType": "none",
+    "toolSpeed": 1,
+    "tier": 0,
+    "durability": 0,
+    "attack": 0,
+    "range": 0,
+    "description": "닭에서 얻은 고기. 모닥불에서 굽거나 치와와에게 줄 수 있습니다.",
+    "rarity": "common",
+    "useEffect": {
+      "hunger": 6,
+      "poisonChance": 0
+    }
+  },
+  {
+    "id": "chicken_cooked",
+    "name": "구운 닭고기",
+    "kind": "food",
+    "blockId": null,
+    "stackSize": 20,
+    "hunger": 16,
+    "poisonChance": 0,
+    "toolType": "none",
+    "toolSpeed": 1,
+    "tier": 0,
+    "durability": 0,
+    "attack": 0,
+    "range": 0,
+    "description": "모닥불에서 구운 닭고기. 치와와에게 줄 수도 있습니다.",
+    "rarity": "common",
+    "useEffect": {
+      "hunger": 16,
+      "poisonChance": 0
+    }
   }
 ]
