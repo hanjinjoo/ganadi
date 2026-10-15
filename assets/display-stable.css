@@ -47,3 +47,5 @@ input,select,textarea{font-size:16px!important;}
 #game,canvas,#hud,#inventory,#settings-screen,#seed-menu,button,summary {touch-action:none;}
 #station-back{min-height:32px;font-size:11px;padding:4px 8px;align-self:flex-start;}
 #station-back[hidden]{display:none;}
+
+#reset{display:none!important}

@@ -47,7 +47,7 @@ export function attachStage4(scene){
  const abort=new AbortController();
  const keyFor=(cow)=>({x:Math.max(0,Math.min(511,Math.floor(cow.homeX/16))),
    y:Math.max(0,Math.min(159,Math.floor(cow.homeY/16)))});
- const worldNow=()=>scene.worldElapsedSeconds ?? 0;
+ const worldNow=()=>scene.playTime ?? 0;
  const distanceTo=(x,y)=>{const body=scene.player.body;return Math.hypot(body.x+body.width/2-x,body.y+body.height/2-y);};
  function remaining(cow){
   const live=liveCows.get(cow)??0;
@@ -110,6 +110,7 @@ export function attachStage4(scene){
  }
  // Aiming with a bottle must not auto-strike a cow while preparing to milk it.
  // Manual attack controls and all other tools remain unchanged.
+ const oldInteract=input.onInteract;input.onInteract=(x,y,event)=>{const t=!input.touchMode&&!event?.shiftKey&&target();return t?use(t):oldInteract(x,y,event);};
  const oldHasAttackTarget=scene.hasAttackTarget.bind(scene);
  scene.hasAttackTarget=()=>inv.slot(inv.selected).id==='empty_bottle'?false:oldHasAttackTarget();
  const oldEat=scene.eatSelected.bind(scene);
@@ -124,9 +125,9 @@ export function attachStage4(scene){
  }
  function restore(saved){
   validateStage4Save(saved);cooldowns.clear();
-  for(const e of saved?.milkingCooldowns??[])if(e.until>worldNow())cooldowns.set(`${e.x},${e.y}`,{...e});
+  for(const e of saved?.milkingCooldowns??[]){const remaining=Math.min(60,Math.max(0,e.until-(saved.clock==='play'?worldNow():(scene.worldElapsedSeconds??0))));if(remaining>0)cooldowns.set(`${e.x},${e.y}`,{...e,until:worldNow()+remaining});}
  }
- scene.snapshot=()=>{prune();return {...oldSnapshot(),stage4:{version:1,milkingCooldowns:[...cooldowns.values()].map(e=>({...e}))}};};
+ scene.snapshot=()=>{prune();return {...oldSnapshot(),stage4:{version:1,clock:"play",milkingCooldowns:[...cooldowns.values()].map(e=>({...e}))}};};
  scene.restoreSave=data=>{oldRestore(data);restore(data.stage4);};
  restore(scene.session.restore?.stage4);
  scene.stage4={target,use,sameTarget,remaining,onDrinkMilk:null};

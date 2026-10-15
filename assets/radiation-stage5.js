@@ -108,7 +108,7 @@ export function attachStage5(scene){
  const abort=new AbortController(), inv=scene.inventory,world=scene.world;
  let state=initialRadiationState(scene.worldElapsedSeconds,scene.session.restore?.stage5);
  let lastAt=scene.worldElapsedSeconds,paintClock=0;
- const air=new AirConnectivity(world),off=world.changed.subscribe(()=>air.invalidate());
+ const air=new AirConnectivity(world),off=world.changed.subscribe((x,y,old,id)=>{const pass=n=>!n||world.registry.getByNumericId(n).collision===false||['leaves','leaf'].includes(world.registry.getByNumericId(n).id);if(pass(old)!==pass(id))air.invalidate();});
  const hud=document.getElementById('survival-hud');
  const status=document.createElement('span');status.id='radiation-status';status.hidden=true;status.setAttribute('role','status');hud.append(status);
  const mask=document.createElement('button');mask.id='mask-toggle';mask.type='button';mask.hidden=true;mask.textContent='방독면 착용';
