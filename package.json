@@ -1,7 +1,7 @@
 {
-  "name": "ganadi-stage4-items",
+  "name": "ganadi-stage5-radiation",
   "private": true,
-  "version": "0.0.0-stage4",
+  "version": "0.0.0-stage5",
   "type": "module",
   "scripts": {
     "test": "node --test tests/*.test.mjs"

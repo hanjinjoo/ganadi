@@ -419,5 +419,43 @@
       "type": "acquire",
       "item": "chicken_raw"
     }
+  },
+  {
+    "id": "glass",
+    "result": {
+      "item": "glass",
+      "count": 1
+    },
+    "ingredients": [
+      {
+        "item": "sand",
+        "count": 2
+      }
+    ],
+    "station": "campfire",
+    "craftTime": 5,
+    "unlock": {
+      "type": "acquire",
+      "item": "sand"
+    }
+  },
+  {
+    "id": "empty_bottle",
+    "result": {
+      "item": "empty_bottle",
+      "count": 3
+    },
+    "ingredients": [
+      {
+        "item": "glass",
+        "count": 3
+      }
+    ],
+    "station": "workbench",
+    "craftTime": 0,
+    "unlock": {
+      "type": "acquire",
+      "item": "glass"
+    }
   }
 ]

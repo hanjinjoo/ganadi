@@ -464,5 +464,46 @@
     "lightEmission": 0,
     "flammability": 0.8,
     "special": "none"
+  },
+  {
+    "id": "water",
+    "numericId": 23,
+    "name": "물",
+    "texture": "blocks/water",
+    "hardness": 100000,
+    "toolType": "none",
+    "requiredTier": 99,
+    "miningTime": 60000,
+    "dropItem": [],
+    "stackSize": 99,
+    "transparent": true,
+    "collision": false,
+    "gravity": false,
+    "lightEmission": 0,
+    "flammability": 0,
+    "special": "none"
+  },
+  {
+    "id": "sand",
+    "numericId": 24,
+    "name": "모래",
+    "texture": "blocks/sand",
+    "hardness": 1,
+    "toolType": "none",
+    "requiredTier": 0,
+    "miningTime": 0.5,
+    "dropItem": [
+      {
+        "id": "sand",
+        "count": 1
+      }
+    ],
+    "stackSize": 99,
+    "transparent": false,
+    "collision": true,
+    "gravity": false,
+    "lightEmission": 0,
+    "flammability": 0,
+    "special": "none"
   }
 ]

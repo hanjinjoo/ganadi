@@ -16,7 +16,7 @@ export function attachStations(scene){
   return true;
  }
  craft.stationAccess=id=>!!current&&current.id===id&&scene.inventoryUI.opened&&reachable(current);
- function render(){title.textContent=current?(current.id==='workbench'?'작업대 제작':'모닥불 요리'):'손 제작';back.hidden=!current;ui.chosen=null;ui.stamp='';ui.render();}
+ function render(){title.textContent=current?(current.id==='workbench'?'작업대 제작':'모닥불 조리·제련'):'손 제작';back.hidden=!current;ui.chosen=null;ui.stamp='';ui.render();}
  function leave(){current=null;craft.cancel();ui.stopHold();render();}
  function open(x,y,explicit=false){
   if((!explicit&&(demolish||input.building))||scene.pausedByMenu||scene.dying>0||scene.inventoryUI.opened||!scene.inventoryUI.canOpen())return false;
@@ -33,12 +33,12 @@ export function attachStations(scene){
  
  const use=document.createElement('button');use.id='context-use';use.type='button';use.hidden=true;document.getElementById('hud').append(use);
 
- let hold=null,usePointer=null,suppressClick=false,nextPlace=0,selected=null;
+ let hold=null,usePointer=null,suppressClick=false,nextPlace=0,selected=null,pressedTarget=null;
  function allowed(){return input.touchMode&&!input.disabled&&!scene.inventoryUI.opened&&!scene.pausedByMenu&&scene.dying<=0&&scene.form.permits('build');}
  function place(){if(scene.build.update(0,true,Math.floor(input.worldX/16),Math.floor(input.worldY/16),scene.player.body))scene.audio.play('block_place');}
  function stop(){hold=null;usePointer=null;if(input.padPointer!==-1)input.actionSuppressed=true;input.contextHolding=false;}
  use.addEventListener('pointerdown',e=>{
-  suppressClick=false;if(target()){usePointer=e.pointerId;input.contextHolding=true;input.actionSuppressed=input.padPointer!==-1;scene.mining.reset();return;}if(!allowed()||scene.build.check(scene.player.body,Math.floor(input.worldX/16),Math.floor(input.worldY/16))!=='')return;
+  suppressClick=false;if(target()){pressedTarget=target();usePointer=e.pointerId;input.contextHolding=true;input.actionSuppressed=input.padPointer!==-1;scene.mining.reset();return;}if(!allowed()||scene.build.check(scene.player.body,Math.floor(input.worldX/16),Math.floor(input.worldY/16))!=='')return;
   e.preventDefault();hold=e.pointerId;selected=scene.inventory.selected;suppressClick=true;input.contextHolding=true;input.actionSuppressed=input.padPointer!==-1;scene.mining.reset();use.setPointerCapture(e.pointerId);place();nextPlace=performance.now()+300;
  },{signal:abort.signal});
  for(const type of ['pointerup','pointercancel','lostpointercapture'])window.addEventListener(type,e=>{if(e.pointerId===hold||e.pointerId===usePointer)stop();},{signal:abort.signal});
@@ -48,7 +48,7 @@ export function attachStations(scene){
  function target(){
   if(!input.touchMode||input.disabled||scene.inventoryUI.opened||scene.pausedByMenu||scene.dying>0||!scene.inventoryUI.canOpen())return null;
   const x=Math.floor(input.worldX/16),y=Math.floor(input.worldY/16),id=scene.world.getBlock(x,y)?.id;
-  return scene.homestead?.target(x,y)??(['workbench','campfire','chest'].includes(id)&&reachable({id,x,y})?{id,x,y}:null);
+  return scene.stage4?.target()??scene.homestead?.target(x,y)??(['workbench','campfire','chest'].includes(id)&&reachable({id,x,y})?{id,x,y}:null);
  }
  function refreshUse(){
   const t=target(),canPlace=allowed()&&scene.build.check(scene.player.body,Math.floor(input.worldX/16),Math.floor(input.worldY/16))==='';use.hidden=!t&&!canPlace&&hold===null;
@@ -60,6 +60,8 @@ export function attachStations(scene){
  }
  use.addEventListener('click',()=>{if(suppressClick){suppressClick=false;return;}
   const t=target();if(!t)return;
+  if(pressedTarget){const old=pressedTarget;pressedTarget=null;if(old.stage4||t.stage4){if(!scene.stage4?.sameTarget(old,t))return;}else if(!(old.id===t.id&&old.x===t.x&&old.y===t.y))return;}
+  if(t.stage4){scene.stage4.use(t);use.hidden=true;use.blur();return;}
   if(t.custom){scene.homestead.use(t.x,t.y);use.hidden=true;use.blur();return;}
   input.clear();scene.controls.clear();scene.mining.reset();
   if(t.id==='chest'){scene.inventoryUI.setOpen(true);if(scene.inventoryUI.opened)scene.chestUI.open(scene.chests.get(t.x,t.y));}
