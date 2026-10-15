@@ -1,0 +1,239 @@
+[
+  {
+    "id": "green_fur_rat",
+    "name": "들돼지",
+    "behavior": "passive",
+    "health": 12,
+    "speed": 45,
+    "attack": 0,
+    "detectRange": 0,
+    "loseRange": 200,
+    "attackRange": 0,
+    "attackCooldown": 1,
+    "loot": [
+      {
+        "item": "mutant_meat_raw",
+        "count": 1,
+        "min": 1,
+        "max": 2,
+        "chance": 1
+      }
+    ],
+    "spawn": {
+      "weight": 3,
+      "nightWeight": 1,
+      "underground": false,
+      "time": "any",
+      "depthMin": 0,
+      "depthMax": 69,
+      "biomes": [
+        "ash_ruins",
+        "spore_wood"
+      ],
+      "groupMin": 1,
+      "groupMax": 3
+    },
+    "defense": 0,
+    "fleeHpRatio": 0.2
+  },
+  {
+    "id": "gray_howler",
+    "name": "잿빛 멧돼지",
+    "behavior": "hostile",
+    "health": 48,
+    "speed": 60,
+    "attack": 8,
+    "detectRange": 120,
+    "loseRange": 200,
+    "attackRange": 14,
+    "attackCooldown": 1,
+    "loot": [
+      {
+        "item": "mutant_meat_raw",
+        "count": 1,
+        "min": 0,
+        "max": 1,
+        "chance": 1
+      },
+      {
+        "item": "copper",
+        "count": 1,
+        "min": 1,
+        "max": 1,
+        "chance": 0.2
+      }
+    ],
+    "spawn": {
+      "weight": 1,
+      "nightWeight": 1,
+      "underground": false,
+      "time": "night_or_underground",
+      "depthMin": 0,
+      "depthMax": 157,
+      "biomes": [
+        "ash_ruins",
+        "spore_wood",
+        "deep_crack"
+      ],
+      "groupMin": 1,
+      "groupMax": 1
+    },
+    "defense": 0,
+    "fleeHpRatio": 0.2
+  },
+  {
+    "id": "cow",
+    "name": "소",
+    "behavior": "passive",
+    "health": 18,
+    "speed": 40.5,
+    "attack": 0,
+    "detectRange": 0,
+    "loseRange": 200,
+    "attackRange": 0,
+    "attackCooldown": 1,
+    "loot": [
+      {
+        "item": "beef_raw",
+        "count": 1,
+        "min": 1,
+        "max": 3,
+        "chance": 1
+      }
+    ],
+    "spawn": {
+      "weight": 2,
+      "nightWeight": 1,
+      "underground": false,
+      "time": "any",
+      "depthMin": 0,
+      "depthMax": 69,
+      "biomes": [
+        "ash_ruins",
+        "spore_wood"
+      ],
+      "groupMin": 1,
+      "groupMax": 2
+    },
+    "defense": 0,
+    "fleeHpRatio": 0.2,
+    "width": 14.4,
+    "height": 14.4,
+    "visualScale": 1.2,
+    "fleeSpeed": 1.35
+  },
+  {
+    "id": "minotaur",
+    "name": "미노타우르스",
+    "behavior": "hostile",
+    "health": 72,
+    "speed": 51,
+    "attack": 10,
+    "detectRange": 120,
+    "loseRange": 200,
+    "attackRange": 25,
+    "attackCooldown": 1.5,
+    "loot": [
+      {
+        "item": "beef_raw",
+        "count": 2,
+        "min": 2,
+        "max": 4,
+        "chance": 1
+      }
+    ],
+    "spawn": {
+      "weight": 0.7,
+      "nightWeight": 1,
+      "underground": false,
+      "time": "night",
+      "depthMin": 0,
+      "depthMax": 69,
+      "biomes": [
+        "ash_ruins",
+        "spore_wood",
+        "deep_crack"
+      ],
+      "groupMin": 1,
+      "groupMax": 1,
+      "maxAlive": 2
+    },
+    "defense": 0,
+    "fleeHpRatio": 0,
+    "width": 22,
+    "height": 30,
+    "attackWindup": 0.5,
+    "sunDamage": 0.2
+  },
+  {
+    "id": "chicken",
+    "name": "닭",
+    "behavior": "passive",
+    "health": 8,
+    "speed": 38,
+    "attack": 0,
+    "detectRange": 0,
+    "loseRange": 200,
+    "attackRange": 0,
+    "attackCooldown": 1,
+    "loot": [
+      {
+        "item": "chicken_raw",
+        "count": 1,
+        "min": 1,
+        "max": 1,
+        "chance": 1
+      }
+    ],
+    "spawn": {
+      "weight": 2,
+      "nightWeight": 1,
+      "underground": false,
+      "time": "any",
+      "depthMin": 0,
+      "depthMax": 69,
+      "biomes": [
+        "ash_ruins",
+        "spore_wood"
+      ],
+      "groupMin": 1,
+      "groupMax": 3
+    },
+    "defense": 0,
+    "fleeHpRatio": 0.2,
+    "width": 10,
+    "height": 11
+  },
+  {
+    "id": "chihuahua",
+    "name": "치와와",
+    "behavior": "hostile",
+    "health": 10,
+    "speed": 65,
+    "attack": 5,
+    "detectRange": 80,
+    "loseRange": 160,
+    "attackRange": 18,
+    "attackCooldown": 1.2,
+    "loot": [],
+    "spawn": {
+      "weight": 0.8,
+      "nightWeight": 0.75,
+      "underground": false,
+      "time": "any",
+      "depthMin": 0,
+      "depthMax": 69,
+      "biomes": [
+        "ash_ruins",
+        "spore_wood"
+      ],
+      "groupMin": 1,
+      "groupMax": 1,
+      "maxAlive": 3
+    },
+    "defense": 0,
+    "fleeHpRatio": 0,
+    "width": 12,
+    "height": 12
+  }
+]

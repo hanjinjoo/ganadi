@@ -1,0 +1,23 @@
+{
+  "id": "old_mine",
+  "width": 20,
+  "height": 8,
+  "underground": true,
+  "legend": {
+    ".": null,
+    "#": "rubble",
+    "p": "plank",
+    "w": "withered_wood",
+    "c": "supply_crate"
+  },
+  "rows": [
+    "####################",
+    ".pppppppppppppppppp.",
+    "..w......w.......w..",
+    ".........w.......w..",
+    ".........w.......w..",
+    "..w......w.......w..",
+    "..w..c...w....c..w..",
+    "####################"
+  ]
+}

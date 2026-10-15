@@ -1,0 +1,83 @@
+{
+  "supply_crate": {
+    "rolls": 1,
+    "mode": "independent",
+    "entries": [
+      {
+        "id": "canned_beans",
+        "weight": 1,
+        "min": 1,
+        "max": 1,
+        "chance": 0.5
+      },
+      {
+        "id": "canned_fish",
+        "weight": 1,
+        "min": 1,
+        "max": 1,
+        "chance": 0.2
+      },
+      {
+        "id": "torch",
+        "weight": 1,
+        "min": 1,
+        "max": 1,
+        "chance": 0.3
+      },
+      {
+        "id": "wood_scrap",
+        "weight": 1,
+        "min": 1,
+        "max": 1,
+        "chance": 0.4
+      },
+      {
+        "id": "copper",
+        "weight": 1,
+        "min": 1,
+        "max": 1,
+        "chance": 0.3
+      },
+      {
+        "id": "scrap_metal",
+        "weight": 1,
+        "min": 1,
+        "max": 1,
+        "chance": 0.1
+      }
+    ]
+  },
+  "scrap_ore": {
+    "rolls": 1,
+    "mode": "independent",
+    "entries": [
+      {
+        "id": "scrap_metal",
+        "weight": 1,
+        "min": 1,
+        "max": 2,
+        "chance": 1
+      },
+      {
+        "id": "canned_beans",
+        "weight": 1,
+        "min": 1,
+        "max": 1,
+        "chance": 0.03
+      }
+    ]
+  },
+  "withered_wood": {
+    "rolls": 1,
+    "mode": "independent",
+    "entries": [
+      {
+        "id": "wood_scrap",
+        "weight": 1,
+        "min": 1,
+        "max": 3,
+        "chance": 1
+      }
+    ]
+  }
+}

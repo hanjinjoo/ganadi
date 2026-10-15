@@ -1,0 +1,151 @@
+{
+  "events": {
+    "footstep_stone": {
+      "src": "assets/audio/footstep_stone.ogg",
+      "frequency": 130,
+      "duration": 0.12,
+      "category": "sfx",
+      "loop": false
+    },
+    "footstep_dirt": {
+      "src": "assets/audio/footstep_dirt.ogg",
+      "frequency": 95,
+      "duration": 0.12,
+      "category": "sfx",
+      "loop": false
+    },
+    "footstep_metal": {
+      "src": "assets/audio/footstep_metal.ogg",
+      "frequency": 260,
+      "duration": 0.12,
+      "category": "sfx",
+      "loop": false
+    },
+    "mining_hit": {
+      "src": "assets/audio/mining_hit.ogg",
+      "frequency": 180,
+      "duration": 0.12,
+      "category": "sfx",
+      "loop": false
+    },
+    "mining_break": {
+      "src": "assets/audio/mining_break.ogg",
+      "frequency": 115,
+      "duration": 0.12,
+      "category": "sfx",
+      "loop": false
+    },
+    "block_place": {
+      "src": "assets/audio/block_place.ogg",
+      "frequency": 230,
+      "duration": 0.12,
+      "category": "sfx",
+      "loop": false
+    },
+    "item_pickup": {
+      "src": "assets/audio/item_pickup.ogg",
+      "frequency": 520,
+      "duration": 0.12,
+      "category": "sfx",
+      "loop": false
+    },
+    "eat": {
+      "src": "assets/audio/eat.ogg",
+      "frequency": 340,
+      "duration": 0.12,
+      "category": "sfx",
+      "loop": false
+    },
+    "craft_complete": {
+      "src": "assets/audio/craft_complete.ogg",
+      "frequency": 640,
+      "duration": 0.12,
+      "category": "sfx",
+      "loop": false
+    },
+    "attack": {
+      "src": "assets/audio/attack.ogg",
+      "frequency": 300,
+      "duration": 0.12,
+      "category": "sfx",
+      "loop": false
+    },
+    "player_hit": {
+      "src": "assets/audio/player_hit.ogg",
+      "frequency": 90,
+      "duration": 0.12,
+      "category": "sfx",
+      "loop": false
+    },
+    "creature_voice": {
+      "src": "assets/audio/creature_voice.ogg",
+      "frequency": 145,
+      "duration": 0.12,
+      "category": "sfx",
+      "loop": false
+    },
+    "transform_growl": {
+      "src": "assets/audio/transform_growl.ogg",
+      "frequency": 75,
+      "duration": 0.12,
+      "category": "sfx",
+      "loop": false
+    },
+    "rampage_heartbeat": {
+      "src": "assets/audio/rampage_heartbeat.ogg",
+      "frequency": 65,
+      "duration": 0.12,
+      "category": "sfx",
+      "loop": true
+    },
+    "ui_click": {
+      "src": "assets/audio/ui_click.ogg",
+      "frequency": 660,
+      "duration": 0.12,
+      "category": "sfx",
+      "loop": false
+    },
+    "wind_surface": {
+      "src": "assets/audio/wind_surface.ogg",
+      "frequency": 72,
+      "duration": 0.12,
+      "category": "ambience",
+      "loop": true
+    },
+    "underground_echo": {
+      "src": "assets/audio/underground_echo.ogg",
+      "frequency": 105,
+      "duration": 0.12,
+      "category": "ambience",
+      "loop": true
+    },
+    "bgm_day": {
+      "src": "assets/audio/bgm_day.ogg",
+      "frequency": 220,
+      "duration": 0.12,
+      "category": "music",
+      "loop": true
+    },
+    "bgm_night": {
+      "src": "assets/audio/bgm_night.ogg",
+      "frequency": 146,
+      "duration": 0.12,
+      "category": "music",
+      "loop": true
+    },
+    "bgm_rampage": {
+      "src": "assets/audio/bgm_rampage.ogg",
+      "frequency": 82,
+      "duration": 0.12,
+      "category": "music",
+      "loop": true
+    },
+    "pistol_shot": {
+      "src": "assets/audio/pistol-shot.wav",
+      "frequency": 100,
+      "duration": 0.12,
+      "category": "sfx",
+      "loop": false
+    }
+  }
+}

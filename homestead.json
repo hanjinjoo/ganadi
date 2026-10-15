@@ -1,0 +1,96 @@
+{
+  "generationVersion": 3,
+  "melee": {
+    "hand": 32,
+    "spear": 48
+  },
+  "leaves": {
+    "speed": 0.7
+  },
+  "furniture": {
+    "door": {
+      "cells": [
+        [
+          0,
+          0,
+          "door"
+        ],
+        [
+          0,
+          -1,
+          "door_top"
+        ]
+      ],
+      "support": [
+        [
+          0,
+          1
+        ]
+      ],
+      "open": [
+        "door_open",
+        "door_top_open"
+      ]
+    },
+    "bed": {
+      "cells": [
+        [
+          0,
+          0,
+          "bed"
+        ],
+        [
+          1,
+          0,
+          "bed_foot"
+        ]
+      ],
+      "support": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          1
+        ]
+      ]
+    }
+  },
+  "fuel": {
+    "capacitySeconds": 600,
+    "fadeSeconds": 10,
+    "entries": [
+      {
+        "item": "leaf",
+        "seconds": 10,
+        "power": 1
+      },
+      {
+        "item": "wood_scrap",
+        "seconds": 30,
+        "power": 2
+      },
+      {
+        "item": "plank",
+        "seconds": 45,
+        "power": 2
+      },
+      {
+        "item": "withered_wood",
+        "seconds": 60,
+        "power": 2
+      },
+      {
+        "item": "coal",
+        "seconds": 120,
+        "power": 3
+      }
+    ]
+  },
+  "sleep": {
+    "health": 10,
+    "hunger": 10,
+    "transitionMs": 650
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "feed": {
+    "range": 48,
+    "count": 1,
+    "meats": [
+      "mutant_meat_raw",
+      "beef_raw",
+      "chicken_raw",
+      "cooked_meat",
+      "beef_cooked",
+      "chicken_cooked"
+    ]
+  }
+}
