@@ -59,28 +59,36 @@ export class WorldInput {
     this.clear();this.touchMode=false;document.body.classList.remove('touch-aim');e.preventDefault();this.pointer=e.pointerId;this.active=true;this.right=e.button===2;this.canvas.setPointerCapture(e.pointerId);this.position(e);if(e.button===0&&this.onInteract(this.targetX,this.targetY,e))this.clear();
   };
   move=e=>{if(this.touchMode||this.disabled||(this.pointer!==-1&&e.pointerId!==this.pointer))return;if(this.pointer!==-1||e.pointerType==='mouse')this.position(e);};
+  followPad(x,y){
+    if(!this.padOrigin)return;
+    const r=this.padOrigin,dx=x-this.padStartX,dy=y-this.padStartY;
+    const left=Math.max(4,Math.min(innerWidth-r.width-4,r.left+dx));
+    const top=Math.max(4,Math.min(innerHeight-r.height-4,r.top+dy));
+    this.pad.style.transform='translate('+(left-r.left)+'px,'+(top-r.top)+'px)';
+  }
+  resetPad(){this.pad.style.removeProperty('transform');this.padOrigin=null;}
   padDown=e=>{
     if(this.disabled||this.padPointer!==-1||e.button!==0)return;
     e.preventDefault();this.enableTouch();this.padPointer=e.pointerId;this.active=true;this.autoTarget=null;this.cancelled.clear();
-    this.lastX=e.clientX;this.lastY=e.clientY;this.pad.classList.add('active');this.pad.setPointerCapture(e.pointerId);this.updateTarget();if(this.onInteract(this.targetX,this.targetY,e))this.clear();
+    this.resetPad();this.padOrigin=this.pad.getBoundingClientRect();this.padStartX=e.clientX;this.padStartY=e.clientY;this.lastX=e.clientX;this.lastY=e.clientY;this.pad.classList.add('active');this.pad.setPointerCapture(e.pointerId);this.updateTarget();if(this.onInteract(this.targetX,this.targetY,e))this.clear();
   };
   padMove=e=>{
     if(this.disabled||e.pointerId!==this.padPointer)return;
     const r=this.canvas.getBoundingClientRect();
     this.sx=Math.max(8,Math.min(this.canvas.width-8,this.sx+(e.clientX-this.lastX)*this.canvas.width/r.width));
     this.sy=Math.max(8,Math.min(this.canvas.height-8,this.sy+(e.clientY-this.lastY)*this.canvas.height/r.height));
-    this.lastX=e.clientX;this.lastY=e.clientY;this.updateTarget();
+    this.lastX=e.clientX;this.lastY=e.clientY;this.followPad(e.clientX,e.clientY);this.updateTarget();
   };
   leave=()=>{if(!this.active&&!this.touchMode)this.aiming=false;};
   end=e=>{
-    if(e.pointerId===this.padPointer){this.padPointer=-1;this.actionSuppressed=false;this.active=false;this.autoTarget=null;this.cancelled.clear();this.pad.classList.remove('active');}
+    if(e.pointerId===this.padPointer){this.padPointer=-1;this.actionSuppressed=false;this.active=false;this.autoTarget=null;this.cancelled.clear();this.pad.classList.remove('active');this.resetPad();}
     if(e.pointerId===this.pointer){this.pointer=-1;this.active=false;this.right=false;}
   };
   toggle=()=>{if(this.disabled)return;this.clear();this.buildMode=!this.buildMode;this.showMode();this.button.blur();};
   showMode(){this.button.setAttribute('aria-pressed',String(this.buildMode));this.button.textContent=this.buildMode?'설치 모드':'채굴·공격 모드';this.pad.querySelector('small').textContent=this.buildMode?'조준 · 설치':'조준 · 채굴/공격';}
   clear=()=>{
     const captures=[[this.canvas,this.pointer],[this.pad,this.padPointer]];
-    this.actionSuppressed=false;this.pointer=this.padPointer=-1;this.active=false;this.right=false;this.aiming=false;this.autoTarget=null;this.cancelled.clear();this.pad.classList.remove('active');
+    this.actionSuppressed=false;this.pointer=this.padPointer=-1;this.active=false;this.right=false;this.aiming=false;this.autoTarget=null;this.cancelled.clear();this.pad.classList.remove('active');this.resetPad();
     for(const [node,id] of captures)if(node.hasPointerCapture(id))node.releasePointerCapture(id);
   };
   destroy(){this.abort.abort();this.clear();document.body.classList.remove('touch-aim');}
