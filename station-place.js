@@ -1,3 +1,4 @@
+import {sameContextTarget,contextButtonPosition} from "./stage6-ui.js";
 /** A station is usable only while its installed block has been explicitly opened. */
 export function attachStations(scene){
  const input=scene.worldInput,craft=scene.crafting,ui=scene.craftingUI; input.occupiedTarget=()=>!!scene.world.getBlock(Math.floor(input.worldX/16),Math.floor(input.worldY/16));
@@ -38,12 +39,12 @@ export function attachStations(scene){
  function place(){if(scene.build.update(0,true,Math.floor(input.worldX/16),Math.floor(input.worldY/16),scene.player.body))scene.audio.play('block_place');}
  function stop(){hold=null;usePointer=null;if(input.padPointer!==-1)input.actionSuppressed=true;input.contextHolding=false;}
  use.addEventListener('pointerdown',e=>{
-  suppressClick=false;if(target()){pressedTarget=target();usePointer=e.pointerId;input.contextHolding=true;input.actionSuppressed=input.padPointer!==-1;scene.mining.reset();return;}if(!allowed()||scene.build.check(scene.player.body,Math.floor(input.worldX/16),Math.floor(input.worldY/16))!=='')return;
+  suppressClick=false;pressedTarget=null;const downTarget=target();if(downTarget){pressedTarget=downTarget;usePointer=e.pointerId;input.contextHolding=true;input.actionSuppressed=input.padPointer!==-1;scene.mining.reset();return;}if(!allowed()||scene.build.check(scene.player.body,Math.floor(input.worldX/16),Math.floor(input.worldY/16))!=='')return;
   e.preventDefault();hold=e.pointerId;selected=scene.inventory.selected;suppressClick=true;input.contextHolding=true;input.actionSuppressed=input.padPointer!==-1;scene.mining.reset();use.setPointerCapture(e.pointerId);place();nextPlace=performance.now()+300;
  },{signal:abort.signal});
- for(const type of ['pointerup','pointercancel','lostpointercapture'])window.addEventListener(type,e=>{if(e.pointerId===hold||e.pointerId===usePointer)stop();},{signal:abort.signal});
- for(const type of ['blur','resize'])window.addEventListener(type,stop,{signal:abort.signal});
- document.addEventListener('visibilitychange',stop,{signal:abort.signal});
+ for(const type of ['pointerup','pointercancel','lostpointercapture'])window.addEventListener(type,e=>{if(e.pointerId===usePointer&&type!=='pointerup')pressedTarget=null;if(e.pointerId===hold||e.pointerId===usePointer)stop();},{signal:abort.signal});
+ for(const type of ['blur','resize'])window.addEventListener(type,()=>{stop();pressedTarget=null;},{signal:abort.signal});
+ document.addEventListener('visibilitychange',()=>{stop();pressedTarget=null;},{signal:abort.signal});
  function repeat(){if(hold===null)return;if(!allowed()||selected!==scene.inventory.selected){stop();return;}if(performance.now()>=nextPlace){place();nextPlace=performance.now()+120;}}
  function target(){
   if(!input.touchMode||input.disabled||scene.inventoryUI.opened||scene.pausedByMenu||scene.dying>0||!scene.inventoryUI.canOpen())return null;
@@ -52,7 +53,12 @@ export function attachStations(scene){
  }
  function refreshUse(){
   const t=target(),canPlace=allowed()&&scene.build.check(scene.player.body,Math.floor(input.worldX/16),Math.floor(input.worldY/16))==='';use.hidden=!t&&!canPlace&&hold===null;
-  if(t||canPlace||hold!==null){use.textContent=hold!==null||!t?'설치':t.label??(t.id==='workbench'?'작업대 사용':t.id==='campfire'?'요리하기':'상자 열기');const r=input.pad.getBoundingClientRect();use.style.left=Math.max(4,r.left-88)+'px';use.style.top=(r.top+(r.height-48)/2)+'px';}
+  if(t||canPlace||hold!==null){
+   use.textContent=hold!==null||!t?'설치':t.label??(t.id==='workbench'?'작업대 사용':t.id==='campfire'?'요리하기':'상자 열기');
+   const pad=input.pad.getBoundingClientRect(),blocked=['joystick','jump','attack-button','eat-action','hotbar','survival-hud'].map(id=>document.getElementById(id)).filter(el=>el&&!el.hidden&&el.getClientRects().length).map(el=>{const r=el.getBoundingClientRect();return {x:r.left,y:r.top,width:r.width,height:r.height};});
+   const pos=contextButtonPosition(pad,{width:window.innerWidth,height:window.innerHeight},blocked,use.offsetWidth||80,use.offsetHeight||48);
+   if(pos){use.style.left=pos.left+'px';use.style.top=pos.top+'px';}else{use.hidden=true;pressedTarget=null;}
+  }
   const slot=scene.inventory.slot(scene.inventory.selected),place=!!(slot.id&&scene.inventory.registry.get(slot.id).blockId);
   input.selectedBuild=place;
   // Using a facility is explicit; holding aim still mines it with any valid item.
@@ -60,9 +66,9 @@ export function attachStations(scene){
  }
  use.addEventListener('click',()=>{if(suppressClick){suppressClick=false;return;}
   const t=target();if(!t)return;
-  if(pressedTarget){const old=pressedTarget;pressedTarget=null;if(old.stage4||t.stage4){if(!scene.stage4?.sameTarget(old,t))return;}else if(!(old.id===t.id&&old.x===t.x&&old.y===t.y))return;}
+  if(pressedTarget){const old=pressedTarget;pressedTarget=null;if(!sameContextTarget(old,t,(a,b)=>scene.stage4?.sameTarget(a,b)))return;}
   if(t.stage4){scene.stage4.use(t);use.hidden=true;use.blur();return;}
-  if(t.custom){scene.homestead.use(t.x,t.y);use.hidden=true;use.blur();return;}
+  if(t.custom){scene.homestead.use(t.x,t.y,t.entity??null);use.hidden=true;use.blur();return;}
   input.clear();scene.controls.clear();scene.mining.reset();
   if(t.id==='chest'){scene.inventoryUI.setOpen(true);if(scene.inventoryUI.opened)scene.chestUI.open(scene.chests.get(t.x,t.y));}
   else open(t.x,t.y,true);

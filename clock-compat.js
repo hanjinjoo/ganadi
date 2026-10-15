@@ -6,7 +6,7 @@
  * state (radiation, equipment, milking) will require a separate reviewed schema
  * migration once those systems actually exist.
  */
-export const ACTIVE_GENERATION_VERSION = 6;
+export const ACTIVE_GENERATION_VERSION = 7;
 export const RESERVED_TERRAIN_GENERATION_VERSION = 4;
 export const DAY_SECONDS = 600;
 

@@ -1,0 +1,7 @@
+#radiation-status{display:inline-block;border:1px solid #ac9372;background:#332c30;color:#ffe8c6;padding:3px 6px;border-radius:4px;font-weight:600;font-size:11px;white-space:nowrap;max-width:45vw;overflow:hidden;text-overflow:ellipsis}
+#radiation-status[hidden],#mask-toggle[hidden],#radiation-dust[hidden]{display:none!important}
+#mask-toggle{position:fixed;z-index:46;left:50%;transform:translateX(-50%);bottom:64px;font-size:11px;padding:7px 9px;min-height:34px;border-radius:6px;color:#fff3d8;background:#334739;border:1px solid #c8b77d;touch-action:manipulation}
+#mask-toggle[aria-pressed='true']{background:#355e57;border-color:#a4dccb}
+#radiation-dust{position:absolute;inset:0;z-index:26;pointer-events:none;opacity:.25;background:repeating-linear-gradient(120deg,transparent 0 38px,rgba(204,176,147,.28) 42px 43px,transparent 45px 92px),linear-gradient(130deg,rgba(117,94,85,.2),transparent 70%);animation:radiation-drift 9s linear infinite;}
+@keyframes radiation-drift{from{background-position:0 0,0 0}to{background-position:175px 0,0 0}}
+@media (prefers-reduced-motion: reduce){#radiation-dust{animation:none}}
