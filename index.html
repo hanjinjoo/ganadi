@@ -10,17 +10,19 @@
     <link rel="manifest" href="./manifest.webmanifest" />
     <link rel="icon" href="./icon.svg" type="image/svg+xml" />
     <title>가나디: 잿빛 지구</title>
-    <script type="module" crossorigin src="./assets/index-expansion.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-C5jlvgUO.css">
-  <link rel="stylesheet" href="./assets/display-stable.css">
-    <script type="module" src="./assets/display-stable.js"></script>
-  <link rel="stylesheet" href="./assets/radiation-stage5.css"><link rel="stylesheet" href="./assets/context-use.css"><link rel="stylesheet" href="./assets/homestead.css">
+<link rel="stylesheet" crossorigin href="/ganadi/assets/index-C5jlvgUO.css">
+<link rel="stylesheet" href="/ganadi/assets/display-stable.css">
+<link rel="stylesheet" href="/ganadi/assets/radiation-stage5.css">
+<link rel="stylesheet" href="/ganadi/assets/context-use.css">
+<link rel="stylesheet" href="/ganadi/assets/homestead.css">
+  <script type="module" crossorigin src="/ganadi/assets/index-COSULdRQ.js"></script>
+  <link rel="modulepreload" crossorigin href="/ganadi/assets/phaser-vendor-BzFzJ4AK.js">
 </head>
   <body>
     <main id="game" tabindex="-1" aria-label="가나디 게임 화면"></main>
     <section id="hud" aria-label="게임 조작">
       <div class="heading"><b>가나디 <span>잿빛 지구</span></b><small id="current-seed"></small></div>
-      <nav><button id="chest-open" type="button">상자 · G</button><button id="inventory-toggle" type="button" aria-expanded="false">가방 · E</button><button id="pause-button" type="button">일시정지 · Esc</button><button type="button" data-fullscreen aria-pressed="false">전체화면</button><details id="game-more"><summary>메뉴 ▾</summary><div><button id="new-game" type="button">타이틀</button><button id="reset" type="button">처음으로 · R</button><button id="fps-toggle" type="button" aria-pressed="false">FPS · F3</button></div></details></nav>
+      <nav><button id="chest-open" type="button">상자 · G</button><button id="inventory-toggle" type="button" aria-expanded="false">가방 · E</button><button id="pause-button" type="button">일시정지 · Esc</button><button type="button" data-fullscreen aria-pressed="false">전체화면</button><details id="game-more"><summary>메뉴 ▾</summary><div><button id="new-game" type="button">타이틀</button><button id="reset" type="button" hidden aria-hidden="true" tabindex="-1"></button><button id="fps-toggle" type="button" aria-pressed="false">FPS · F3</button></div></details></nav>
       <div id="joystick" role="group" aria-label="이동 스틱: 좌우 이동, 위로 밀면 점프"><span class="arrows"><span>◀</span><span>▶</span></span><small class="stick-jump-hint">↑ 점프</small><span id="stick"></span></div>
       <button id="jump" type="button" aria-label="점프, 길게 누르면 높이 점프">↑<small>점프</small></button>
       <button id="build-toggle" type="button" aria-pressed="false">채굴 모드</button>
